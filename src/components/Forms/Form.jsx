@@ -4,10 +4,6 @@ import ClienteForm from './ClienteForm';
 import { VisibilityCliente } from '../../app/contexts/teste';
 
 
-import { useServico } from '../../app/contexts/teste';
-import Addproduto from '../Cadastro/Addproduto'
-
-
 import supabase from '../../app/services/supabase';
 
 export default function Form({ toggleVisibility }) {

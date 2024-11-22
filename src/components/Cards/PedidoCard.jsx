@@ -42,7 +42,7 @@ export default function PedidoCard({
       <div className="flex w-full" > 
         <div className="w-1/6" ></div>
 
-            <Link href='/' onClick={toggleVisibleInfoCard} className=" flex flex-col w-9/12 bg-[#104f55] rounded-lg border border-black my-4 p-[40px] hover:border-[white] transition hover: duration-150">
+            <Link href='/' onClick={(e) => {e.preventDefault(); toggleVisibleInfoCard();}} className=" flex flex-col w-9/12 bg-[#104f55] rounded-lg border border-black my-4 p-[40px] hover:border-[white] transition hover: duration-150">
               <div className='flex'>
                   <div id="placa" className="m-auto">
                     <h1 className="text-white text-xl mr-4">Placa: {placa}</h1>
