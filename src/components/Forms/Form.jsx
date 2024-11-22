@@ -194,7 +194,19 @@ export default function Form({ toggleVisibility }) {
 
     return (
       <>
-      {isVisibleCliente && <ClienteForm toggleVisibilityCliente={toggleVisibilityCliente}/>}
+      
+      {isVisibleCliente && (
+        <>
+          {/* Overlay escuro */}
+          <div className="overlay" onClick={toggleVisibilityCliente}></div>
+          
+          {/* Formulário destacado */}
+          <div className="ml-28 my-8">
+            <ClienteForm toggleVisibilityCliente={toggleVisibilityCliente}/>
+          </div>
+        </>
+      )}
+      
       <main className="flex h-screen z-10">
         
       <div className="x w-1/6"></div>

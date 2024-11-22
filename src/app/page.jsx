@@ -37,7 +37,17 @@ export default function Home(){
       </button>
 
     
-      {isVisible && <Form toggleVisibility={toggleVisibility} />}
+      {isVisible && (
+        <>
+          {/* Overlay escuro */}
+          <div className="overlay" onClick={toggleVisibility}></div>
+          
+          {/* Formulário destacado */}
+          <div className="form-container">
+            <Form toggleVisibility={toggleVisibility} />
+          </div>
+        </>
+      )}
     </div>
 
 
