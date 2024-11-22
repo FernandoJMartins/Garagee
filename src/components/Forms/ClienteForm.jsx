@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { useServico } from '../../app/contexts/teste';
 import CPFRegexFormat from '../Consultas/CPFRegexFormat';
 
-export default function ClienteForm() {
-  const { toggleVisibilityCliente, handleChange } = useServico();
+export default function ClienteForm({toggleVisibilityCliente}) {
+
 
   return (
     <>
@@ -14,8 +14,7 @@ export default function ClienteForm() {
           
             
               <form
-                className="border-2 flex justify-center h-[30rem] w-[40rem] flex-col bg-gray-900 px-8 py-8 rounded-lg border-white shadow-[10px_5px_rgb(255,255,255)] transition-all duration-[0.5s] ease-[ease-in-out] hover:shadow-[10px_5px_rgb(255,255,255)] hover:transition-all hover:duration-[0.25s] hover:ease-[ease-in-out]"
-                id="borda1"
+                className="flex justify-center flex-col border-2 bg-[#104f55] px-8 py-8 rounded-lg border-white border" 
                 >
                 <div className="grid grid-cols-5 gap-4">
                   <div id="nome" className="m-1 flex flex-col col-span-3">
@@ -128,19 +127,10 @@ export default function ClienteForm() {
                     ></input>
                   </div>
                 </div>
-                <div className="flex justify-center pt-6">
-                  <button className="border-2 text-white p-2 rounded-lg bg-[#00ff0059] hover:bg-green-500">
-                    Salvar
-                  </button>
-                  {/* <button className="border-2 text-white p-2 rounded-lg bg-[#00ff0059] hover:bg-green-500">
-                    Deletar
-                  </button> */}
-                  <button
-                    onClick={toggleVisibilityCliente}
-                    className="border-2 text-white p-2 rounded-lg bg-[#00ff0059] hover:bg-green-500"
-                  >
-                    Fechar
-                  </button>
+                <div className="flex justify-center pt-[25px]">
+            
+                  <button id="save" type='submit' className="text-white rounded border mr-2 border-black bg-[#01301c] p-2 hover: border-white">Salvar</button>
+                  <button onClick={() => toggleVisibilityCliente(false)} className="text-white rounded border border-black bg-[#01301c] p-2 hover: border-white">Fechar</button> 
                 </div>
               </form>
             
