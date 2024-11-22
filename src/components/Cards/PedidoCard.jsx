@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useServico } from '../app/contexts/teste';
-import InfoPedidoDiv from './InfoPedidoDiv';
+import { useServico } from '../../app/contexts/teste';
+import InfoPedidoDiv from '../Opcoes/InfoPedidoDiv';
 import { useState } from 'react';
 
 export default function PedidoCard({

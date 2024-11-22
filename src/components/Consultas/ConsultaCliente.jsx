@@ -1,6 +1,6 @@
 import CPFRegexCliente from "./CPFRegexCliente"
-import CardClienteConsulta from "./CardClienteConsulta"
-import { useServico } from "../app/contexts/teste"
+import CardClienteConsulta from "../Cards/CardClienteConsulta"
+import { useServico } from "../../app/contexts/teste.js"
 import { useEffect, useState } from "react"
 
 export default function ConsultaCliente(){

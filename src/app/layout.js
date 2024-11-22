@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../components/Opcoes/Sidebar"
 import ServicoProvider from "./contexts/teste"
 import "./style.css"
 

@@ -1,13 +1,13 @@
 'use client';
 import './style.css'
-import Form from '../components/Form';
+import Form from '../components/Forms/Form';
 
 import { IoAdd} from "react-icons/io5";
 import {useServico} from './contexts/teste';
-import PedidoCard from '../components/PedidoCard';
+import PedidoCard from '../components/Cards/PedidoCard';
 import { useEffect, useState } from 'react';
 import supabase from './services/supabase';
-import InfoPedidoDiv from '../components/InfoPedidoDiv';
+import InfoPedidoDiv from '../components/Opcoes/InfoPedidoDiv';
 
 export default function Home(){
     const  {

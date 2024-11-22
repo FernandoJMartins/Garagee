@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useServico } from "../app/contexts/teste"
-import CardServicoConsulta from "./CardServicoConsulta"
+import { useServico } from "../../app/contexts/teste.js"
+import CardServicoConsulta from "../../components/Cards/CardServicoConsulta"
 export default function ConsultaServico(){
     const{
         loadServico,

@@ -1,11 +1,10 @@
 'use client';
-import '../../components/Form.jsx';
-import '../../components/Opcoes.jsx';
-import '../../components/CadProdutoForm.jsx';
-import Opcoes from '../../components/Opcoes.jsx';
-import CadProdutoForm from '../../components/CadProdutoForm.jsx';
+
+import '../../components/Forms/Form.jsx';
+import CadProdutoForm from '../../components/Cadastro/CadProdutoForm.jsx';
+import Opcoes from '../../components/Opcoes/Opcoes.jsx';
+import CadServico from '../../components/Cadastro/CadServico.jsx';
 import {useServico} from '../contexts/teste';
-import CadServico from "../../components/CadServico.jsx"
 
 export default function Cadastro(){
   const {

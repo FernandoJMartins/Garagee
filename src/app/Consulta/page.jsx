@@ -1,9 +1,10 @@
 "use client"
 import { useState } from "react"
-import OpcoesConsulta from "@/src/components/OpcoesConsulta"
-import ConsultaServico from "@/src/components/ConsultaServico"
-import ConsultaProduto from "@/src/components/ConsutaProduto"
-import ConsultaCliente from "@/src/components/ConsultaCliente"
+import OpcoesConsulta from "@/src/components/Opcoes/OpcoesConsulta"
+import ConsultaServico from "@/src/components/Consultas/ConsultaServico"
+import ConsultaProduto from "@/src/components/Consultas/ConsutaProduto"
+import ConsultaCliente from "@/src/components/Consultas/ConsultaCliente"
+
 export default function Consulta(){
     const titulo1 = "Serviço"
     const titulo2 = "Produto"

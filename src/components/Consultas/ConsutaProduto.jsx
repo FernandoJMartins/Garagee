@@ -1,5 +1,5 @@
-import { useServico } from "../app/contexts/teste"
-import CardProdutoConsulta from "./CardProdutoConsulta"
+import { useServico } from "../../app/contexts/teste.js"
+import CardProdutoConsulta from "../Cards/CardProdutoConsulta"
 import { useEffect, useState } from "react"
 export default function ConsultaProduto(){
     const{

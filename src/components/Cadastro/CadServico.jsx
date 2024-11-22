@@ -1,4 +1,4 @@
-import { useServico } from "../app/contexts/teste";
+import { useServico } from "../../app/contexts/teste";
 
 export default function CadServico(){
     const {

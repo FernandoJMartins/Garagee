@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { pedidos as ped } from '../data/seed';
+import { pedidos as ped } from '../../data/seed';
 import ClienteForm from './ClienteForm';
-import { VisibilityCliente } from '../app/contexts/teste';
+import { VisibilityCliente } from '../../app/contexts/teste';
 
 
-import { useServico } from '../app/contexts/teste';
-import Addproduto from './Addproduto'
+import { useServico } from '../../app/contexts/teste';
+import Addproduto from '../Cadastro/Addproduto'
 
 
-import supabase from '../app/services/supabase';
+import supabase from '../../app/services/supabase';
 
 export default function Form({ toggleVisibility }) {
   const initialState = { // Estado inicial do formulário
