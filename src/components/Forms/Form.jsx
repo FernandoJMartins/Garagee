@@ -6,7 +6,7 @@ import { VisibilityCliente } from '../../app/contexts/teste';
 
 import supabase from '../../app/services/supabase';
 
-export default function Form({ toggleVisibility }) {
+export default function Form({ toggleVisibility, updateCard }) {
   const initialState = { // Estado inicial do formulário
     cliente: '',
     cod: '',
@@ -134,7 +134,7 @@ export default function Form({ toggleVisibility }) {
   const handleSubmit = async (e) => { // Manipulador de envio do formulário
     e.preventDefault(); // Evite que o formulário seja enviado
 
-    if (e.nativeEvent.submitter.id === 'save') {
+    if ( await e.nativeEvent.submitter.id === 'save') {
 
     const newPedido = {
       
@@ -174,6 +174,7 @@ export default function Form({ toggleVisibility }) {
 
     });
   };
+    updateCard();
   };
 
     
