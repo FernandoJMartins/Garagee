@@ -55,3 +55,25 @@ export async function remove(resource, id) {
     return true;
   }
 }
+
+
+
+export async function getLastCod() {
+  try {
+    const { data, error } = await supabase
+      .from('Pedidos')
+      .select('*')
+      .order('id', { ascending: false })
+      .limit(1);
+
+    if (error) {
+      console.error("Erro ao buscar dados:", error);
+      return;
+    }
+
+    const lastCod = data[0]?.id;
+    return lastCod;
+  } catch (err) {
+    console.error("Erro ao executar exemplo:", err);
+  }
+}

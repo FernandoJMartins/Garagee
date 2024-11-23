@@ -46,7 +46,7 @@ export default function Home(){
           
           {/* Formulário destacado */}
           <div className="form-container">
-            <Form toggleVisibility={toggleVisibility} updateCard={updateCard} />
+            <Form toggleVisibility={toggleVisibility} updateCard={updateCard} loadPedidos={loadPedidos} pedidos={pedidos}/>
           </div>
         </>
       )}

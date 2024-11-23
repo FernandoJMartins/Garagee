@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { pedidos as ped } from '../../data/seed';
 import ClienteForm from './ClienteForm';
 import { VisibilityCliente } from '../../app/contexts/teste';
+import { getLastCod } from '../../app/services/supabase';
 
 
 import supabase from '../../app/services/supabase';
 
-export default function Form({ toggleVisibility, updateCard }) {
+export default function Form({ toggleVisibility, updateCard, loadPedidos, p }) {
   const initialState = { // Estado inicial do formulário
     cliente: '',
-    cod: '',
+    cod: ID + 1,
     placa: '',
     modelo: '',
     km: '',
@@ -76,20 +77,27 @@ export default function Form({ toggleVisibility, updateCard }) {
 
 
 
+  const [ID, setID] = useState(0);
+
+  let cod = ID + 1;
+
+  function getID() {
+    getLastCod().then((data) => {
+      console.log(data)
+      setID(data);
+
+  })};
+
+
+  useEffect(() => { 
+    getID();
+  }, []);
 
 
   const [pedidos] = useState(ped); // Estado inicial dos pedidos
- 
-  let cod = String(pedidos.length+1);
-  console.log(pedidos)
 
-  const leftclick = () => {
-    cod = pedidos.length-1
-  }
 
-  const rightclick = () => {
-    cod = pedidos.length+1
-  }
+
 
   useEffect(() => { // Atualize o pagamentoValor sempre que os valores mudarem
     updateValores();
@@ -135,12 +143,12 @@ export default function Form({ toggleVisibility, updateCard }) {
     e.preventDefault(); // Evite que o formulário seja enviado
 
     if ( await e.nativeEvent.submitter.id === 'save') {
-
+    getID();
     const newPedido = {
       
       ...Pedido,
       data: setCurrentDate(),
-      cod: pedidos.length + 1,
+      cod: ID + 1,
       nf: 1,
       preco: parseFloat(Pedido.preco || 0).toFixed(2), // Garanta que seja formatado como número de ponto flutuante com 2 casas decimais
       preco2: parseFloat(Pedido.preco2 || 0).toFixed(2), // Garanta que seja formatado como número de ponto flutuante com 2 casas decimais
@@ -167,7 +175,7 @@ export default function Form({ toggleVisibility, updateCard }) {
 
     setPedido({
       ...initialState,
-      cod: pedidos.length + 1,
+      cod: ID + 1,
       nf: 1,
       data: setCurrentDate(),
       
