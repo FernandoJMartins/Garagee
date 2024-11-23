@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useServico } from '../../app/contexts/teste';
 
 export default function CPFRegexFormat() {

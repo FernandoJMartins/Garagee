@@ -6,18 +6,20 @@ import { IoAdd} from "react-icons/io5";
 import {useServico} from './contexts/teste';
 import PedidoCard from '../components/Cards/PedidoCard';
 import { useEffect, useState } from 'react';
-import supabase from './services/supabase';
-import InfoPedidoDiv from '../components/Opcoes/InfoPedidoDiv';
+import { update } from './services/supabase';
 
 export default function Home(){
     const  {
-      // isVisible,
-      // toggleVisibility,
       loadPedidos,
-      pedidos
+      pedidos,
     } = useServico();
 
     const [isVisible, setIsVisible] = useState(false);
+    const [updateCards, setUpdateCards] = useState(0);
+
+    const updateCard = () => {
+        setUpdateCards((prev) => prev + 1);
+    }
 
     const toggleVisibility = () => {
       setIsVisible(!isVisible);
@@ -25,7 +27,7 @@ export default function Home(){
 
   useEffect(() => { 
   loadPedidos();
-}, []);
+}, [updateCards]);
    
     
   return(
@@ -52,7 +54,7 @@ export default function Home(){
 
 
     {pedidos.map((pedido) => (
-        <PedidoCard {...pedido} key={pedido.id}/> //key é para o react identificar cada elemento
+        <PedidoCard {...pedido} key={pedido.id} updateCard={updateCard} /> //key é para o react identificar cada elemento
     ))}
 
 

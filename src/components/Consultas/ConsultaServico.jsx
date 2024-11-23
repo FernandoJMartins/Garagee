@@ -7,9 +7,6 @@ export default function ConsultaServico(){
         servico,
         showCard,
         visibilityCard,
-        setInfoServico,
-        infoServico,
-        setServico,
         
     } = useServico()
 

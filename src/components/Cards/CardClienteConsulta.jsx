@@ -1,4 +1,4 @@
-import { useServico } from "../../app/contexts/teste"
+
 export default function CardClienteConsulta({result}){
     return (<>
 <div className="flex justify-center items-center ml-[50px] pt-[30px]">

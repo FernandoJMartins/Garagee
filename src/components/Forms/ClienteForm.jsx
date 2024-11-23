@@ -1,6 +1,3 @@
-import Link from 'next/link';
-import { useContext } from 'react';
-import { useServico } from '../../app/contexts/teste';
 import CPFRegexFormat from '../Consultas/CPFRegexFormat';
 
 export default function ClienteForm({toggleVisibilityCliente}) {

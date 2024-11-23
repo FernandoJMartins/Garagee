@@ -1,5 +1,3 @@
-import PedidoCard from '../Cards/PedidoCard'
-
 export default function InfoPedidoDiv({
     cliente,
     placa,

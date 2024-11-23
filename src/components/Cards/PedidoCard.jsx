@@ -4,6 +4,7 @@ import InfoPedidoDiv from '../Opcoes/InfoPedidoDiv';
 import { useState } from 'react';
 
 export default function PedidoCard({
+    updateCard,
     cliente,
     placa,
     modelo,
@@ -29,11 +30,14 @@ export default function PedidoCard({
     const toggleVisibleInfoCard = () => {
       setIsVisibleInfoCard(!isVisibleInfoCard)
     }	
-    const { removePedido } = useServico(); // Certifique-se de usar o nome correto do hook
 
-    const handleRemovePedidoCard = () => {
-      removePedido(id);
-    };
+    const {removePedido} = useServico();
+
+    const handleRemovePedidoCard = async() => {
+      await removePedido(id);
+      updateCard();
+    }
+
 
 
 

@@ -1,6 +1,3 @@
-
-
-
 export default function OpcoesConsulta({ titulo1, titulo2, titulo3, selectConsulta, changeToServico, changeToProduto, changeToCliente}){
     
     return (<>
