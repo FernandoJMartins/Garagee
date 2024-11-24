@@ -19,7 +19,7 @@ export default function InfoPedidoDiv({
   }){
     
     return( <>
-        <div className='mt-5 grid grid-cols-4 gap-4'>
+        <div className='mt-5 grid grid-cols-4'>
 
              <div className="ml-2 mr-2 mt-3 mb-4 col-span-4">
                 <div id="obs" className=''>

@@ -18,11 +18,19 @@ export default function ConsultaProduto(){
 
     const handleChange = (event) => {
         let { name, value } = event.target;
+
+        const key = event.nativeEvent.inputType; //detectar tecla pressionada
+
+        if (key === 'deleteContentBackward') {
+            setInput({...input, [name]: value }); //atualiza o estado do input
+            return;
+        }
+
         setInput({ ...input, [name]: value });
 
         let ProdutoFiltrado = Produto.filter((Produto) => Produto.Nome.toUpperCase().includes(input.Nome.toUpperCase()))
         setResult(ProdutoFiltrado)
-        console.log(ProdutoFiltrado)
+        console.log(ProdutoFiltrado);
       };
     return (<>
             <section>

@@ -21,6 +21,14 @@ export default function ConsultaServico(){
 
     const handleChange = (event) => {
         let { name, value } = event.target;
+
+        const key = event.nativeEvent.inputType; //detectar tecla pressionada
+
+        if (key === 'deleteContentBackward') {
+            setInput({...input, [name]: value }); //atualiza o estado do input
+            return;
+        }
+        
         setInput({ ...input, [name]: value });
 
         let servicoFiltrado = servico.filter((servico) => servico.Nome.toUpperCase().includes(input.Nome.toUpperCase()))

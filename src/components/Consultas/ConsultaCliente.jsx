@@ -14,35 +14,48 @@ export default function ConsultaCliente(){
     } = useServico()
 
     useEffect(() => {
+        loadCliente(),
+        []})    
 
-        loadCliente(),[]})    
+    const [input, setInput] = useState({CPF: ""})
 
-        const [input, setInput] = useState({CPF: ""})
-
-        const [result, setResult] = useState([])
+    const [result, setResult] = useState([])
     
-        const handleChange = (event) => {
-            let { name, value } = event.target;
-            setInput({ ...input, [name]: value });
-    
-            let ClienteFiltrado = Cliente.filter((Cliente) => Cliente.CPF.toUpperCase().includes(input.CPF.toUpperCase()))
-            setResult(ClienteFiltrado)
-            console.log(ClienteFiltrado)
-            const onlyNumbers = value.replace(/\D/g, '');
 
-            let formattedValue = '';
 
-             if (onlyNumbers.length <= 3) {
+    const handleChange = (event) => {
+    let { name, value } = event.target;
+
+    const key = event.nativeEvent.inputType; //detectar tecla pressionada
+    const onlyNumbers = value.replace(/\D/g, '');
+
+    if (key === 'deleteContentBackward') {
+        setInput({...input, [name]: onlyNumbers }); //atualiza o estado do input
+        setInputValue(value); //mantem o valor do input
+        return;
+    }
+
+    let formattedValue = '';
+
+    if (onlyNumbers.length <= 3) {
               formattedValue = onlyNumbers;
-            } else if (onlyNumbers.length <= 6) {
+    } else if (onlyNumbers.length <= 6) {
               formattedValue = `${onlyNumbers.slice(0, 3)}.${onlyNumbers.slice(3)}`;
-            } else if (onlyNumbers.length <= 9) {
+    } else if (onlyNumbers.length <= 9) {
               formattedValue = `${onlyNumbers.slice(0, 3)}.${onlyNumbers.slice(3, 6)}.${onlyNumbers.slice(6)}`;
-            } else {
+    } else {
               formattedValue = `${onlyNumbers.slice(0, 3)}.${onlyNumbers.slice(3, 6)}.${onlyNumbers.slice(6, 9)}-${onlyNumbers.slice(9, 11)}`;
             }
 
-            setInputValue(formattedValue);
+
+    //atualiza o estado do input
+    setInput({ ...input, [name]: onlyNumbers });
+    setInputValue(formattedValue);
+    
+    let ClienteFiltrado = Cliente.filter((Cliente) => Cliente.CPF.toUpperCase().includes(onlyNumbers.toUpperCase()));
+    setResult(ClienteFiltrado);
+
+    console.log(ClienteFiltrado);
           };
 
     return (<>
