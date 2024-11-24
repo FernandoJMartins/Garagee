@@ -8,10 +8,10 @@ export default function Sidebar() {
 
       <div className="m-[30px] my-16 flex text-center flex-col">
   
-        <p className="nome_funcionario text-white text-sm text-[black] text-xl center justify-content">João Paulo</p>
+        <p className="nome_funcionario text-white text-sm text-[black] text-xl center justify-content">Fernando Júlio</p>
 
-        <div className="m-[30px] combine flex flex-row gap-[15px]">
-          <p className="codigo_funcionario text-xs">20231370018</p>
+        <div className="m-[30px] combine flex flex justify-center center align-center">
+          <p className="text text-xs">ADMIN</p>
         </div>
 
         <section className="options mt-8 gap-5">
