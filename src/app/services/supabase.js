@@ -77,3 +77,27 @@ export async function getLastCod() {
     console.error("Erro ao executar exemplo:", err);
   }
 }
+
+
+
+export async function getLastCodFrom(resource) {
+  resource = String(resource);
+    try {
+    const { data, error } = await supabase
+      .from(resource)
+      .select('*')
+      .order('Código', { ascending: false })
+      .limit(1);
+
+    if (error) {
+      console.error("Erro ao buscar dados:", error);
+      return;
+    }
+
+    const lastCod = data[0].Código;
+    console.log(lastCod); 
+    return lastCod;
+  } catch (err) {
+    console.error("Erro ao executar exemplo:", err);
+  }
+}

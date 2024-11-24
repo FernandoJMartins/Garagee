@@ -1,22 +1,28 @@
 import { useServico } from "../../app/contexts/teste";
+import { useEffect, useState } from "react";
 
 export default function CadProdutoForm(){
     const {
       ProdutoData, 
       setProdutoData,
-      handleCreateProduto,
-      createProduto
+      createProduto,
+      getNewId
     } = useServico()
+
+    
 
     const handleChange = (event) => {
       let { name, value } = event.target;
-      
       setProdutoData({ ...ProdutoData, [name]: value });
     };
   
     const handleFormSubmit = async (event) => {
       event.preventDefault(); 
+     
+      let { name, value } = event.target;
+      setProdutoData({ ...ProdutoData, [name]: value });
       await createProduto(ProdutoData); 
+
       alert("Produto cadastrado com sucesso!")                                  
     };
   return (<>
@@ -125,11 +131,9 @@ export default function CadProdutoForm(){
             </label>
             <input
               type="text"
-              readOnly="readonly"
-              defaultValue="(AutoNumeração)"
-              id="IdProduto"
-              placeholder=""
-              autoComplete="off"
+              name="ID"
+              value={ProdutoData.Código || "Carregando..."}
+              disabled
               className="p-[10px] rounded-lg bg-white"
             />
           </div>

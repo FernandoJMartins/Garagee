@@ -1,6 +1,6 @@
 "use client"
 import { createContext, useState, useContext } from 'react';
-import {read, create, remove} from "../services/supabase";
+import {read, create, remove, getLastCodFrom} from "../services/supabase";
 
 
 
@@ -193,17 +193,26 @@ export default function ServicoProvider({ children }) {
     console.log(newServico)
   };
 
-  const createProduto = async (Produto) => {
-    const newProduto = await create('Produto', Produto);
-    setProduto(newProduto);
-    
-  };
   
   const createPedido = async (Pedido) => {
     const newPedido = await create('Pedidos', Pedido);
     setPedido(newPedido);
     
   };
+
+
+  const createProduto = async (Produto) => {
+    const id = await getLastCodFrom('Produto');
+    
+    const newProduto = await create('Produto', { ...Produto, Código: id + 1 });
+    setProduto(newProduto);
+  };
+
+  const getNewId = async (Produto) => {
+    const lastCod = await getLastCodFrom('Produto');
+    return lastCod + 1;
+  }
+
   
   const removeServico = (id) => {
     const newServico = servico.filter(
