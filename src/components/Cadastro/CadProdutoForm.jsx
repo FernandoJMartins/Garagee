@@ -57,7 +57,7 @@ export default function CadProdutoForm(){
             </label>
             <input
               onChange={handleChange}
-              value={ProdutoData.Nome}
+
               type="text"
               name="Nome"
               id="nomeProduto"
@@ -65,6 +65,14 @@ export default function CadProdutoForm(){
               autoComplete="off"
               className="p-[10px] rounded-lg bg-white"
             />
+          </div>
+          <div id="IdProduto" className="m-1 flex flex-col mr-[15px] mb-[15px]">
+            <label className="text-xl text-white" htmlFor="IdProduto">
+              Código do Produto:
+            </label>
+            <div className="flex justify-center center align-center mt-4 ml-auto">
+            {cod}
+              </div>
           </div>
           <div
             id="fabricante"
@@ -75,7 +83,6 @@ export default function CadProdutoForm(){
             </label>
             <input
               onChange={handleChange}
-              value={ProdutoData.Fabricante}
               type="text"
               name="Fabricante"
               id="fabricante"
@@ -93,7 +100,6 @@ export default function CadProdutoForm(){
             </label>
             <input
               onChange={handleChange}
-              value={ProdutoData.Fornecedor}
               autoComplete="off"
               name="Fornecedor"
               id="Fornecedor"
@@ -110,7 +116,6 @@ export default function CadProdutoForm(){
             </label>
             <input
               onChange={handleChange}
-              value={ProdutoData.ValorCusto}
               type="text"
               name="ValorCusto"
               id="valorProduto"
@@ -131,7 +136,6 @@ export default function CadProdutoForm(){
             </label>
             <input
               onChange={handleChange}
-              value={ProdutoData.PorcentagemLucro}
               type="text"
               name="PorcentagemLucro"
               id="porcentagem_lucroProduto"
@@ -140,21 +144,7 @@ export default function CadProdutoForm(){
               className="p-[10px] rounded-lg bg-white"
             />
           </div>
-          <div id="IdProduto" className="m-1 flex flex-col mr-[15px] mb-[15px]">
-            <label className="text-xl text-white" htmlFor="IdProduto">
-              Código do Produto:
-            </label>
-            <input
-              onChange=""
-              value={cod}
-              type="text"
-              name="cod"
-              id="cod"
-              placeholder=""
-              autoComplete="off"
-              className="p-[10px] rounded-lg bg-white"
-            />
-          </div>
+
         </div>
         <div
           id="DescricaoProduto"
@@ -165,7 +155,6 @@ export default function CadProdutoForm(){
           </label>
           <textarea
             onChange={handleChange}
-            value={ProdutoData.Descrição}
             type="text"
             name="Descrição"
             id="Descrição"

@@ -6,14 +6,19 @@ export default function CadServico(){
         servico,
         createServico
         } = useServico()
+
+
     const handleChange = (event) => {
         let { name, value } = event.target;
-        
         setServico({ ...servico, [name]: value });
       };
+
     
     const handleFormSubmit = async (event) => {
         event.preventDefault(); 
+        
+        let { name, value } = event.target;
+        setServico({ ...servico, [name]: value });
         await createServico(servico);   
         alert("Serviço cadastrado com sucesso!")                              
       };
@@ -34,7 +39,6 @@ export default function CadServico(){
                         </label>
                         <input
                         onChange={handleChange}
-                        value={servico.Nome}
                         type="text"
                         name="Nome"
                         id="nomeServico"
@@ -51,7 +55,6 @@ export default function CadServico(){
                         </label>
                         <input
                         onChange={handleChange}
-                        value={servico.ValorCusto}
                         type="text"
                         name="ValorCusto"
                         id="ValorCustoServico"
@@ -68,7 +71,6 @@ export default function CadServico(){
                         </label>
                         <textarea
                             onChange={handleChange}
-                            value={servico.Descrição}
                             type="text"
                             name="Descrição"
                             id="DescricaoServico"

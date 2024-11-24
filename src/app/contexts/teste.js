@@ -187,7 +187,9 @@ export default function ServicoProvider({ children }) {
     
   };
   const createServico = async (servico) => {
-    const newServico = await create('servico', servico);
+    const id = await getLastCodFrom('servico');
+
+    const newServico = await create('servico', { ...servico, Código: id + 1});
 
     setServico(newServico);
     console.log(newServico)
@@ -208,8 +210,9 @@ export default function ServicoProvider({ children }) {
     setProduto(newProduto);
   };
 
-  const getNewId = async (Produto) => {
-    const lastCod = await getLastCodFrom('Produto');
+  const getNewId = async (resource) => {
+    const table = String(resource);
+    const lastCod = await getLastCodFrom(table);
     return lastCod + 1;
   }
 

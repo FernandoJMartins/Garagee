@@ -5,7 +5,7 @@ export default function CardServicoConsulta({result}){
     
     <div className='flex justify-center items-center ml-[50px] pt-[30px]'>
     <div className="bg-white rounded-lg shadow-md p-6 max-w-xs mx-auto w-80">
-      <h2 className="text-xl font-semibold mb-4">Serviço de id: {result && result.ID}</h2>
+      <h2 className="text-xl font-semibold mb-4">Serviço de id: {result && result.Código}</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="campo1">
           Nome:
