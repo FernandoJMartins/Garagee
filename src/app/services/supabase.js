@@ -78,8 +78,6 @@ export async function getLastCod() {
   }
 }
 
-
-
 export async function getLastCodFrom(resource) {
   resource = String(resource);
     try {

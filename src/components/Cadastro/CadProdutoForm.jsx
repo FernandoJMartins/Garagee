@@ -1,5 +1,6 @@
 import { useServico } from "../../app/contexts/teste";
 import { useEffect, useState } from "react";
+import { getLastCodFrom } from "../../app/services/supabase";
 
 export default function CadProdutoForm(){
     const {
@@ -9,7 +10,21 @@ export default function CadProdutoForm(){
       getNewId
     } = useServico()
 
-    
+    const [ID, setID] = useState(0);
+
+    let cod = ID + 1;
+  
+    function getID() {
+      getLastCodFrom("Produto").then((data) => {
+        setID(data);
+  
+    })};
+  
+  
+    useEffect(() => { 
+      getID();
+    }, []);
+  
 
     const handleChange = (event) => {
       let { name, value } = event.target;
@@ -130,10 +145,13 @@ export default function CadProdutoForm(){
               Código do Produto:
             </label>
             <input
+              onChange=""
+              value={cod}
               type="text"
-              name="ID"
-              value={ProdutoData.Código || "Carregando..."}
-              disabled
+              name="cod"
+              id="cod"
+              placeholder=""
+              autoComplete="off"
               className="p-[10px] rounded-lg bg-white"
             />
           </div>
