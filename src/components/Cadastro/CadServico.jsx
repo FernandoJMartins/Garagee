@@ -1,4 +1,6 @@
 import { useServico } from "../../app/contexts/teste";
+import {useState, useEffect} from "react";
+import { getLastCodFrom } from "@/src/app/services/supabase";
 
 export default function CadServico(){
     const {
@@ -6,6 +8,23 @@ export default function CadServico(){
         servico,
         createServico
         } = useServico()
+
+
+
+        const [ID, setID] = useState(0);
+
+        let cod = ID + 1;
+      
+        function getID() {
+          getLastCodFrom("servico").then((data) => {
+            setID(data);
+      
+        })};
+      
+      
+        useEffect(() => { 
+          getID();
+        }, []);
 
 
     const handleChange = (event) => {
@@ -20,7 +39,12 @@ export default function CadServico(){
         let { name, value } = event.target;
         setServico({ ...servico, [name]: value });
         await createServico(servico);   
-        alert("Serviço cadastrado com sucesso!")                              
+        alert("Serviço cadastrado com sucesso!");
+        setServico({
+            Nome: "",
+            ValorCusto: "",
+            Descrição: "",
+        });                       
       };
     return (<>
 
@@ -29,7 +53,7 @@ export default function CadServico(){
     <div className="items-center pt-[30px]">
         <form onSubmit={(event) => handleFormSubmit(event)} className="flex justify-center flex-col bg-[#104f55] px-8 py-8 rounded-lg border-white border" id="borda1">
             <div className="">
-                <div className="">
+            <div className="grid grid-cols-2">
                     <div
                         id="NomeServico"
                         className="m-1 flex flex-col mr-[15px] mb-[15px]"
@@ -39,6 +63,7 @@ export default function CadServico(){
                         </label>
                         <input
                         onChange={handleChange}
+                        value={servico.Nome}
                         type="text"
                         name="Nome"
                         id="nomeServico"
@@ -47,6 +72,14 @@ export default function CadServico(){
                         className="p-[10px] rounded-lg bg-white"
                         />
                     </div>
+                    <div id="IdProduto" className="m-1 flex flex-col mr-[15px] mb-[15px]">
+            <label className="text-xl text-white" htmlFor="IdProduto">
+              Código do Produto:
+            </label>
+            <div className="flex justify-center center align-center mt-4 ml-auto">
+            {cod}
+              </div>
+          </div>
                     <div
                         id="ValorCustoServico"
                         className="m-1 flex flex-col mr-[15px] mb-[15px]">
@@ -54,6 +87,7 @@ export default function CadServico(){
                             Valor de Custo:
                         </label>
                         <input
+                        value={servico.ValorCusto}
                         onChange={handleChange}
                         type="text"
                         name="ValorCusto"
@@ -69,7 +103,8 @@ export default function CadServico(){
                         <label className="text-xl text-white" htmlFor="DescricaoServico">
                             Descriçao do Serviço:
                         </label>
-                        <textarea
+                        <input
+                            value={servico.Descrição}
                             onChange={handleChange}
                             type="text"
                             name="Descrição"
@@ -77,7 +112,6 @@ export default function CadServico(){
                             placeholder=""
                             autoComplete="off"
                             className="p-[10px] rounded-lg bg-white "
-                            rows={3}
 
                         />
                     </div>

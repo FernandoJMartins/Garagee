@@ -10,6 +10,8 @@ export default function CadProdutoForm(){
       getNewId
     } = useServico()
 
+
+
     const [ID, setID] = useState(0);
 
     let cod = ID + 1;
@@ -35,10 +37,20 @@ export default function CadProdutoForm(){
       event.preventDefault(); 
      
       let { name, value } = event.target;
-      setProdutoData({ ...ProdutoData, [name]: value });
+      setProdutoData({ ...ProdutoData, [name]: value });  
       await createProduto(ProdutoData); 
 
-      alert("Produto cadastrado com sucesso!")                                  
+      getID();
+      alert("Produto cadastrado com sucesso!");
+      setProdutoData({
+        Nome: "",
+        Fabricante: "",
+        Fornecedor: "",
+        ValorCusto: "",
+        PorcentagemLucro: "",
+        Descrição: "",
+      });
+                                    
     };
   return (<>
     <section>
@@ -56,6 +68,7 @@ export default function CadProdutoForm(){
               Nome do Produto:
             </label>
             <input
+              value= {ProdutoData.Nome}
               onChange={handleChange}
 
               type="text"
@@ -82,6 +95,7 @@ export default function CadProdutoForm(){
               Fabricante:
             </label>
             <input
+              value= {ProdutoData.Fabricante}
               onChange={handleChange}
               type="text"
               name="Fabricante"
@@ -99,6 +113,7 @@ export default function CadProdutoForm(){
               Fornecedor:
             </label>
             <input
+              value= {ProdutoData.Fornecedor}
               onChange={handleChange}
               autoComplete="off"
               name="Fornecedor"
@@ -115,6 +130,7 @@ export default function CadProdutoForm(){
               Valor de custo:
             </label>
             <input
+              value= {ProdutoData.ValorCusto}
               onChange={handleChange}
               type="text"
               name="ValorCusto"
@@ -135,6 +151,7 @@ export default function CadProdutoForm(){
               Porcentagem de lucro:
             </label>
             <input
+              value= {ProdutoData.PorcentagemLucro}
               onChange={handleChange}
               type="text"
               name="PorcentagemLucro"
@@ -154,6 +171,7 @@ export default function CadProdutoForm(){
             Descrição do Produto:
           </label>
           <textarea
+            value= {ProdutoData.Descrição}
             onChange={handleChange}
             type="text"
             name="Descrição"
