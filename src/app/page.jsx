@@ -34,7 +34,7 @@ export default function Home(){
     <>
     <div className="flex items-center justify-center">
       <button onClick={toggleVisibility} 
-        className="mt-8 text-white rounded bg-[#01200f] p-2 hover: border-white">
+        className="mt-8 w-14 h-12 text-white rounded bg-[#104f55] p-2  justify-center items-center flex border border-black hover:border-[white] transition hover: duration-150 ml-auto mr-24">
         <IoAdd />
       </button>
 

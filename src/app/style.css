@@ -29,6 +29,13 @@ body{
     background: #131313;
 }
 
+#removeCardOpenOrder {
+    padding: 160px 15px;
+}
+
+#removeCardCloseOrder {
+    padding: 41px 15px;
+}
 
 .overlay {
     position: fixed;
