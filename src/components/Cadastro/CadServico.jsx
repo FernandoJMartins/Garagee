@@ -115,7 +115,9 @@ export default function CadServico(){
 
                         />
                     </div>
-                    <div className="flex justify-center pt-[25px]">
+
+                </div>
+                <div className="flex justify-center pt-[25px]">
                         <input
                             type="submit"
                             defaultValue="Salvar"
@@ -124,7 +126,6 @@ export default function CadServico(){
                             className="bg-white p-2 rounded-lg active:bg-[#00ff0059]"
                         />
                     </div>
-                </div>
             </div>
         </form>
     </div>
