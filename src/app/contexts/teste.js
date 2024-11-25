@@ -186,6 +186,16 @@ export default function ServicoProvider({ children }) {
     setCliente(Cliente)
     
   };
+
+  const create2 = async(Cliente) => {
+    const id = await getLastCodFrom('Cliente');
+
+    const newCliente = await create('Cliente', { ...Cliente, Código: id + 1});
+
+    setServico(newCliente);
+    console.log(newCliente)
+  }
+
   const createServico = async (servico) => {
     const id = await getLastCodFrom('servico');
 
@@ -320,6 +330,7 @@ export default function ServicoProvider({ children }) {
         setPedido,
         initialPedidoData,
         createPedido2,
+        create2,
       }}
     >
       {children}
