@@ -7,7 +7,7 @@ import { getLastCod } from '../../app/services/supabase';
 
 import supabase from '../../app/services/supabase';
 
-export default function Form({ toggleVisibility, updateCard, loadPedidos, p }) {
+export default function Form({ toggleVisibility, updateCard}) {
   const initialState = { // Estado inicial do formulário
     cliente: '',
     cod: ID + 1,
@@ -143,7 +143,6 @@ export default function Form({ toggleVisibility, updateCard, loadPedidos, p }) {
     e.preventDefault(); // Evite que o formulário seja enviado
 
     if ( await e.nativeEvent.submitter.id === 'save') {
-    getID();
     const newPedido = {
       
       ...Pedido,
@@ -181,8 +180,10 @@ export default function Form({ toggleVisibility, updateCard, loadPedidos, p }) {
       
 
     });
+
   };
     updateCard();
+    getID();
   };
 
     
