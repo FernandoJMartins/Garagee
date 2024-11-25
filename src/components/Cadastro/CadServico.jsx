@@ -74,7 +74,7 @@ export default function CadServico(){
                     </div>
                     <div id="IdProduto" className="m-1 flex flex-col mr-[15px] mb-[15px]">
             <label className="text-xl text-white" htmlFor="IdProduto">
-              Código do Produto:
+              Código do Serviço:
             </label>
             <div className="flex justify-center center align-center mt-4 ml-auto">
             {cod}
